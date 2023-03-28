@@ -1,9 +1,7 @@
 ﻿#include "process_injection.h"
+#include "DataEncryptedforImpact.h"
 
-
-int main()
-{
-
+int main() {
 
 	return 0;
 }
