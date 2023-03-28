@@ -7,16 +7,15 @@
 
 namespace win {
 
-	class ProcessInjection
-	{
+	class ProcessInjection{
 
 	};
 
-	class DllInjection : public ProcessInjection
-	{
+	class DllInjection : public ProcessInjection{
 	public:
 	
 	};
+
 
 
 } //namespace win
