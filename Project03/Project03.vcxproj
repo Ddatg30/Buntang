@@ -119,6 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,9 +129,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="data_encrypted_for_impact.cpp" />
+    <ClCompile Include="file_util.cpp" />
     <ClCompile Include="Project03.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="data_encrypted_for_impact.h" />
+    <ClInclude Include="file_util.h" />
     <ClInclude Include="process_injection.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
