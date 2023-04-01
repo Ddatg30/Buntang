@@ -27,6 +27,12 @@
     <ClCompile Include="file_util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="registry_util.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="process_injection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="process_injection.h">
