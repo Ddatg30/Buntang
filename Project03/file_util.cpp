@@ -18,6 +18,7 @@ namespace win {
 			return ERROR_SUCCESS;
 		}
 
+		//Exist file
 		DWORD OpenDataFile(HANDLE* file_handle, std::wstring_view file_path) {
 			*file_handle = ::CreateFileW(file_path.data(),
 				FILE_READ_DATA,
