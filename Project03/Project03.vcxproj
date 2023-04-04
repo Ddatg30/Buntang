@@ -131,8 +131,10 @@
   <ItemGroup>
     <ClCompile Include="access_token_manipulation.cpp" />
     <ClCompile Include="data_encrypted_for_impact.cpp" />
+    <ClCompile Include="process_injection.cpp" />
     <ClCompile Include="file_util.cpp" />
     <ClCompile Include="Project03.cpp" />
+    <ClCompile Include="registry_util.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="access_token_manipulation.h" />
