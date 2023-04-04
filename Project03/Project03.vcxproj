@@ -129,11 +129,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="access_token_manipulation.cpp" />
     <ClCompile Include="data_encrypted_for_impact.cpp" />
     <ClCompile Include="file_util.cpp" />
     <ClCompile Include="Project03.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="access_token_manipulation.h" />
     <ClInclude Include="data_encrypted_for_impact.h" />
     <ClInclude Include="file_util.h" />
     <ClInclude Include="process_injection.h" />

