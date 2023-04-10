@@ -9,6 +9,9 @@ int wmain(int argc, wchar_t* argv[]) {
 	if (argc < 2){
 		
 	}
+	else{
+
+	}
 
 
 	return 0;
