@@ -27,7 +27,7 @@ namespace win {
 		return ERROR_SUCCESS;
 	}
 
-	DWORD DataEncryptedforImpact::ParentPidSpoofing(DWORD parent_proc_infod, std::wstring_view process_path)
+	DWORD AccessTokenManipulation::ParentPidSpoofing(DWORD parent_proc_infod, std::wstring_view process_path)
 	{
 		SIZE_T size = 0;
 		PVOID buffer = nullptr;
@@ -54,7 +54,7 @@ namespace win {
 				::UpdateProcThreadAttribute(attributes, 0, PROC_THREAD_ATTRIBUTE_PARENT_PROCESS, &process_handle, sizeof(process_handle), nullptr, nullptr);
 				start_info.lpAttributeList = attributes;
 
-				if (!::CreateProcessW(nullptr, const_cast<LPWSTR>(process_path.data()), nullptr, nullptr, FALSE, EXTENDED_STARTUPINFO_PRESENT, nullptr, nullptr, reinterpret_cast<STARTUPINFO*>(&start_info), &proc_info))
+				if (!::CreateProcessW(nullptr, const_cast<LPWSTR>(process_path.data()), nullptr, nullptr, FALSE, CREATE_NEW_CONSOLE | EXTENDED_STARTUPINFO_PRESENT, nullptr, nullptr, reinterpret_cast<STARTUPINFO*>(&start_info), &proc_info))
 				{
 					return ::GetLastError();
 				}
@@ -72,7 +72,7 @@ namespace win {
 		return ERROR_SUCCESS;
 	}
 
-	DWORD DataEncryptedforImpact::TokenImpersonationTheft(DWORD target_pid, std::wstring_view create_process_name)
+	DWORD AccessTokenManipulation::TokenImpersonationTheft(DWORD target_pid, std::wstring_view create_process_name)
 	{
 		STARTUPINFOEX start_info = { sizeof(start_info) };
 		PROCESS_INFORMATION proc_info = { };
