@@ -18,7 +18,7 @@ namespace win {
 
 	class ApcInjection : public ProcessInjection {
 	public:
-		DWORD ApcInjectionWithDll(const PROCESS_INFORMATION& process_information, std::wstring_view dll_path);
+		DWORD ApcInjectionWithDll(const PROCESS_INFORMATION& process_information, const std::wstring& dll_path);
 	};
 
 

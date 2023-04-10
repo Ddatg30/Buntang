@@ -1,8 +1,9 @@
-﻿  모듈 종속성의 소스를 검사하는 중...
-  Project03.cpp
-  코드를 생성하고 있습니다.
-  3 of 59 functions ( 5.1%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
-  코드를 생성했습니다.
+﻿  Scanning sources for module dependencies...
+  data_encrypted_for_impact.cpp
+  file_util.cpp
+  Generating code
+  0 of 59 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
   Project03.vcxproj -> C:\Users\asdsxc\Desktop\opensource\nila\Project03\x64\Release\Project03.exe

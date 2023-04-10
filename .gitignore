@@ -33,3 +33,6 @@
 
 #visual studio dir
 .vs/
+
+#build dir
+x64/

