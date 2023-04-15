@@ -18,9 +18,9 @@ namespace win {
 		return true;
 	}
 
-	bool DataEncryptedforImpact::SetRansomExtension(std::vector<std::wstring>* ext_list)
+	bool DataEncryptedforImpact::SetRansomExtension(const std::vector<std::wstring>& ext_list)
 	{
-		ext_List_.insert(ext_List_.end(), ext_list->begin(), ext_list->end());
+		ext_List_.insert(ext_List_.end(), ext_list.begin(), ext_list.end());
 		return true;
 	}
 

