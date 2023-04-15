@@ -66,6 +66,7 @@ namespace win {
 
 			return ERROR_SUCCESS;
 		}
+
 	} //namespace util
 
 } //namespace win

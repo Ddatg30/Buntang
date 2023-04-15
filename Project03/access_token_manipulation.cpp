@@ -50,6 +50,7 @@ namespace win {
 				::UpdateProcThreadAttribute(attributes, 0, PROC_THREAD_ATTRIBUTE_PARENT_PROCESS, &process_handle, sizeof(process_handle), nullptr, nullptr);
 				start_info.lpAttributeList = attributes;
 
+				// CREATE_NEW_CONSOLE flag is avoid error 0xC0000142 
 				if (!::CreateProcessW(nullptr, const_cast<LPWSTR>(process_path.data()), nullptr, nullptr, FALSE, CREATE_NEW_CONSOLE | EXTENDED_STARTUPINFO_PRESENT, nullptr, nullptr, reinterpret_cast<STARTUPINFO*>(&start_info), &proc_info)){
 					return ::GetLastError();
 				}
@@ -108,7 +109,5 @@ namespace win {
 
 		return ERROR_SUCCESS;
 	}
-
-
 
 } //namespace win
