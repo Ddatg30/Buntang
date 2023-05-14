@@ -2,7 +2,7 @@
 
 namespace win {
 
-	DWORD ApcInjection::ApcInjectionWithDll(const PROCESS_INFORMATION& process_information, std::wstring_view dll_path){
+	DWORD ApcInjection::ApcInjectionWithDll(const PROCESS_INFORMATION& process_information, const std::wstring& dll_path){
 		size_t dll_size = dll_path.size() * 2 + sizeof(wchar_t);
 
 		LPVOID address = ::VirtualAllocEx(process_information.hProcess, nullptr, dll_size, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);

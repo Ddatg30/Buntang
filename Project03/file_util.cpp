@@ -3,7 +3,7 @@
 namespace win {
 	namespace util {
 
-		DWORD CreateDataFile(HANDLE* file_handle, std::wstring_view file_path) {
+		DWORD CreateDataFile(HANDLE* file_handle, const std::wstring& file_path) {
 			*file_handle = ::CreateFileW(file_path.data(),
 				GENERIC_WRITE,
 				0,
@@ -19,7 +19,7 @@ namespace win {
 		}
 
 		//Exist file
-		DWORD OpenDataFile(HANDLE* file_handle, std::wstring_view file_path) {
+		DWORD OpenDataFile(HANDLE* file_handle, const std::wstring& file_path) {
 			*file_handle = ::CreateFileW(file_path.data(),
 				FILE_READ_DATA,
 				FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
@@ -57,7 +57,7 @@ namespace win {
 			return ERROR_SUCCESS;
 		}
 
-		DWORD WriteData(HANDLE file_handle, std::wstring_view buffer, DWORD buffer_length) {
+		DWORD WriteData(HANDLE file_handle, const std::wstring& buffer, DWORD buffer_length) {
 			DWORD bytesWritten;
 			if (!::WriteFile(file_handle, buffer.data(), buffer_length, &bytesWritten, NULL)) {
 				::CloseHandle(file_handle);
@@ -66,6 +66,7 @@ namespace win {
 
 			return ERROR_SUCCESS;
 		}
+
 	} //namespace util
 
 } //namespace win
