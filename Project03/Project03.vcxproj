@@ -24,6 +24,7 @@
     <ProjectGuid>{4fd14464-764c-440e-8393-edfac3773c42}</ProjectGuid>
     <RootNamespace>Project03</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Buntang</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -133,7 +134,7 @@
     <ClCompile Include="data_encrypted_for_impact.cpp" />
     <ClCompile Include="process_injection.cpp" />
     <ClCompile Include="file_util.cpp" />
-    <ClCompile Include="Project03.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="registry_util.h" />
   </ItemGroup>
   <ItemGroup>
